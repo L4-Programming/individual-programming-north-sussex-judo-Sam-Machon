@@ -24,6 +24,7 @@
             <div class="radio-button-field">
               <input
                 type="radio"
+                id="beginner"
                 name="training-plan"
                 value="beginner"
                 required
@@ -35,6 +36,7 @@
             <div class="radio-button-field">
               <input
                 type="radio"
+                id="intermediate"
                 name="training-plan"
                 value="intermediate"
                 required
@@ -43,7 +45,13 @@
             </div>
 
             <div class="radio-button-field">
-              <input type="radio" name="training-plan" value="elite" required />
+              <input
+                type="radio"
+                id="elite"
+                name="training-plan"
+                value="elite"
+                required
+              />
               <label for="elite">Elite - 5 sessions p/wk</label>
             </div>
           </div>
@@ -57,14 +65,22 @@
             <label for="competitions-entered"
               >Number of Competitions Entered this Month (Optional)</label
             >
-            <input type="number" name="competitions-entered" />
+            <input
+              type="number"
+              id="competitions-entered"
+              name="competitions-entered"
+            />
           </div>
 
           <div>
             <label for="private-coaching-hours"
               >Number of Hours of Private Coaching (Optional)</label
             >
-            <input type="number" name="private-coaching-hours" />
+            <input
+              type="number"
+              id="private-coaching-hours"
+              name="private-coaching-hours"
+            />
           </div>
 
           <div>
