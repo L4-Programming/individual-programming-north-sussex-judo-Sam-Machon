@@ -2,6 +2,12 @@
 
 let form = document.querySelector("form");
 
+const canPlanCompete = {
+  beginner: "no",
+  intermediate: "yes",
+  elite: "yes",
+};
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -13,14 +19,57 @@ form.addEventListener("submit", function (event) {
   ).value;
   // Store the user's weight as userWeight (number)
   let userWeight = parseInt(document.querySelector("#current-weight").value);
-
+  // Store the user's number of competitions as userCompetitions (number)
   let userCompetitions = parseInt(
     document.querySelector("#competitions-entered").value
   );
-
+  // Store the user's private coaching hours as userCoaching (number)
   let userCoaching = parseInt(
     document.querySelector("#private-coaching-hours").value
   );
+
+  // Removing NAN from optional inputs
+  if (isNaN(userCompetitions)) {
+    userCompetitions = 0;
+  }
+
+  if (isNaN(userCoaching)) {
+    userCoaching = 0;
+  }
+
+  // Is userCompetitions valid?
+  if (canPlanCompete[userPlan] === "no" && userCompetitions > 0) {
+    alert(`${userPlan} cannot take part in competitions.`);
+
+    return;
+  }
+
+  if (userCompetitions > 30 || userCompetitions < 0) {
+    alert("Please enter a valid number of competitions.");
+
+    return;
+  }
+
+  // Is userCoaching valid?
+  if (userCoaching > 5 || userCoaching < 0) {
+    alert("A maximum of 5 hours of coaching is allowed.");
+
+    return;
+  }
+
+  // Has a name been entered?
+  if (userName === "") {
+    alert("Please enter your email address.");
+
+    return;
+  }
+
+  // Is userWeight valid?
+  if (isNaN(userWeight) || userWeight < 50 || userWeight > 250) {
+    alert("Please enter a weight between 50kg and 250kg");
+
+    return;
+  }
 
   console.log(userName, userPlan, userWeight, userCompetitions, userCoaching);
 });
