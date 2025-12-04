@@ -28,6 +28,16 @@ form.addEventListener("submit", function (event) {
     document.querySelector("#private-coaching-hours").value
   );
 
+  let errors = {};
+
+  // Helper function to add error messages
+  function addError(field, message) {
+    if (!errors[field]) {
+      errors[field] = { messages: [] };
+    }
+    errors[field].messages.push(message);
+  }
+
   // Removing NAN from optional inputs
   if (isNaN(userCompetitions)) {
     userCompetitions = 0;
@@ -39,37 +49,51 @@ form.addEventListener("submit", function (event) {
 
   // Is userCompetitions valid?
   if (canPlanCompete[userPlan] === "no" && userCompetitions > 0) {
-    alert(`${userPlan} cannot take part in competitions.`);
+    //alert(`${userPlan} cannot take part in competitions.`);
+    addError(
+      "competitions-entered",
+      `${userPlan} cannot take part in competitions.`
+    );
 
-    return;
-  }
+    //return;
+  } else {
+    if (userCompetitions > 30 || userCompetitions < 0) {
+      //alert("Please enter a valid number of competitions.");
+      addError(
+        "competitions-entered",
+        "Please enter a valid number of competitions."
+      );
 
-  if (userCompetitions > 30 || userCompetitions < 0) {
-    alert("Please enter a valid number of competitions.");
-
-    return;
+      //return;
+    }
   }
 
   // Is userCoaching valid?
   if (userCoaching > 5 || userCoaching < 0) {
-    alert("A maximum of 5 hours of coaching is allowed.");
+    //alert("A maximum of 5 hours of coaching is allowed.");
+    addError(
+      "private-coaching-hours",
+      "Please enter a valid number of coaching hours. A maximum of 5 is allowed."
+    );
 
-    return;
+    //return;
   }
 
   // Has a name been entered?
   if (userName === "") {
-    alert("Please enter your email address.");
+    //alert("Please enter your email address.");
+    addError("athlete-name", "Please enter a name.");
 
-    return;
+    //return;
   }
 
   // Is userWeight valid?
   if (isNaN(userWeight) || userWeight < 50 || userWeight > 250) {
-    alert("Please enter a weight between 50kg and 250kg");
+    //alert("Please enter a weight between 50kg and 250kg");
+    addError("current-weight", "Please enter a weight between 50kg and 250kg");
 
-    return;
+    //return;
   }
 
-  console.log(userName, userPlan, userWeight, userCompetitions, userCoaching);
+  console.log({ errors });
 });
