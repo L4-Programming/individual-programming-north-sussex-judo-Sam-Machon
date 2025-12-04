@@ -95,6 +95,7 @@ form.addEventListener("submit", function (event) {
     //return;
   }
 
+  //Runs through the error id's and finds their respective labels, then adds error styling
   for (let field in errors) {
     let inputElement = document.querySelector(`#${field}`);
     let labelElement = document.querySelector(`label[for=${field}]`);
@@ -103,6 +104,21 @@ form.addEventListener("submit", function (event) {
     }
     if (labelElement) {
       labelElement.classList.add("error-label");
+    }
+
+    let errorDiv = document.querySelector(`#${field}-error`);
+    if (errorDiv) {
+      errorDiv.classList.add("error-message");
+      let ul = document.createElement("ul");
+
+      errors[field].messages.forEach((message) => {
+        let li = document.createElement("li");
+        li.textContent = message;
+        ul.appendChild(li);
+      });
+
+      errorDiv.innerHTML = ""; // Clear any existing content
+      errorDiv.appendChild(ul);
     }
   }
 

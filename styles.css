@@ -246,3 +246,15 @@ button:active {
 .error-label {
   color: var(--brand-dark);
 }
+
+.error-message ul {
+  padding-left: 0;
+}
+.error-message ul li {
+  color: var(--brand-dark);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1px;
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
