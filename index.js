@@ -95,5 +95,16 @@ form.addEventListener("submit", function (event) {
     //return;
   }
 
+  for (let field in errors) {
+    let inputElement = document.querySelector(`#${field}`);
+    let labelElement = document.querySelector(`label[for=${field}]`);
+    if (inputElement) {
+      inputElement.classList.add("error-input");
+    }
+    if (labelElement) {
+      labelElement.classList.add("error-label");
+    }
+  }
+
   console.log({ errors });
 });
