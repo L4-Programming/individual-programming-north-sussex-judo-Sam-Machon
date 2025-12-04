@@ -1,3 +1,4 @@
+import { calculateCosts } from "./calculateCosts.js";
 import { validateForm } from "./validateForm.js";
 
 let form = document.querySelector("form");
@@ -31,4 +32,8 @@ form.addEventListener("submit", function (event) {
   });
 
   console.log({ result });
+
+  if (result) {
+    calculateCosts(result);
+  }
 });
