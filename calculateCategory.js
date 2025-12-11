@@ -1,34 +1,6 @@
-export function calculateCosts(data) {
-  const { userName, userPlan, userWeight, userCompetitions, userCoaching } =
-    data;
-
-  const planCosts = {
-    beginner: 25.0,
-    intermediate: 30.0,
-    elite: 35.0,
-  };
-
-  let coachingCost = (userCoaching * 9.5).toFixed(2);
-
-  let competitionCost = (userCompetitions * 22).toFixed(2);
-
-  let totalCost =
-    planCosts[userPlan] +
-    parseFloat(coachingCost) +
-    parseFloat(competitionCost);
-
-  const output = {
-    totalCost: totalCost.toFixed(2),
-    coachingCost,
-    competitionCost,
-  };
-
-  return { output };
-}
-
 export function calculateCategory(data) {
   const userWeight = data.userWeight;
-
+  console.log(userWeight);
   const weightCategory = {
     flyWeight: 66,
     lightWeight: 73,
@@ -38,12 +10,11 @@ export function calculateCategory(data) {
     heavyWeight: 250,
   };
 
-  if (userWeight < weightCategory.lightweight) {
+  if (userWeight < weightCategory.lightWeight) {
     const userCategory = "Flyweight";
-    console.log(userCategory);
     return userCategory;
   } else if (
-    userWeight > weightCategory.lightweight &&
+    userWeight > weightCategory.lightWeight &&
     userWeight < weightCategory.lightMiddleWeight
   ) {
     const userCategory = "Lightweight";
