@@ -1,6 +1,6 @@
 export function calculateCategory(data) {
   const userWeight = data.userWeight;
-  console.log(userWeight);
+
   const weightCategory = {
     flyWeight: 66,
     lightWeight: 73,

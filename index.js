@@ -1,6 +1,7 @@
 import { calculateCosts } from "./calculateCosts.js";
 import { calculateCategory } from "./calculateCategory.js";
 import { validateForm } from "./validateForm.js";
+import { displayResults } from "./displayResults.js";
 
 let form = document.querySelector("form");
 
@@ -39,5 +40,7 @@ form.addEventListener("submit", function (event) {
     const userCategory = calculateCategory(result);
     console.log(output);
     console.log(userCategory);
+
+    displayResults(result, output, userCategory);
   }
 });

@@ -11,7 +11,7 @@
   --slate-500: #64748b;
   --slate-300: #cbd5e1;
   --white: #ffffff;
-  --error-bkg: rgb(255, 241, 241);
+  --error-bkg: rgb(255, 196, 196);
   --error-placeholder: rgb(255, 157, 157);
 }
 
@@ -257,4 +257,17 @@ button:active {
   letter-spacing: 0.1px;
   list-style: none;
   margin-bottom: 0.5rem;
+}
+
+#output dl {
+  padding: 2rem;
+}
+#output dt {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+#output dd {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }

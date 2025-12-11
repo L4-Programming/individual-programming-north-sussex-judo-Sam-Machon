@@ -23,5 +23,5 @@ export function calculateCosts(data) {
     competitionCost,
   };
 
-  return { output };
+  return output;
 }
