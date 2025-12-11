@@ -28,6 +28,7 @@ export function displayErrors(errors) {
   }
 }
 
+//Queries all elements that have the error classes and removes them
 function removeErrors() {
   let errorInputs = document.querySelectorAll(".error-input");
   errorInputs.forEach((input) => {
