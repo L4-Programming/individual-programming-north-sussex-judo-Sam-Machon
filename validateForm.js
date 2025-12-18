@@ -103,11 +103,11 @@ export function validateForm({
   }
 
   // Is userCoaching valid?
-  if (userCoaching > 5 || userCoaching < 0) {
+  if (userCoaching > 20 || userCoaching < 0) {
     //alert("A maximum of 5 hours of coaching is allowed.");
     addError(
       "private-coaching-hours",
-      "Please enter a valid number of coaching hours. A maximum of 5 is allowed."
+      "Please enter a valid number of coaching hours. A maximum of 20 is allowed."
     );
 
     //return;
