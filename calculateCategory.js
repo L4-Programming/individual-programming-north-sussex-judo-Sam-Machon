@@ -10,34 +10,34 @@ export function calculateCategory(data) {
     heavyWeight: 250,
   };
 
-  if (userWeight < weightCategory.lightWeight) {
+  if (userWeight <= weightCategory.flyWeight) {
     const userCategory = "Flyweight";
     return userCategory;
   } else if (
-    userWeight > weightCategory.lightWeight &&
-    userWeight < weightCategory.lightMiddleWeight
+    userWeight > weightCategory.flyWeight &&
+    userWeight <= weightCategory.lightWeight
   ) {
     const userCategory = "Lightweight";
     return userCategory;
   } else if (
-    userWeight > weightCategory.lightMiddleWeight &&
-    userWeight < weightCategory.middleWeight
+    userWeight > weightCategory.lightWeight &&
+    userWeight <= weightCategory.lightMiddleWeight
   ) {
     const userCategory = "Light-MiddleWeight";
     return userCategory;
   } else if (
-    userWeight > weightCategory.middleWeight &&
-    userWeight < weightCategory.lightHeavyWeight
+    userWeight > weightCategory.lightMiddleWeight &&
+    userWeight <= weightCategory.middleWeight
   ) {
     const userCategory = "Middleweight";
     return userCategory;
   } else if (
-    userWeight > weightCategory.lightHeavyWeight &&
-    userWeight < weightCategory.heavyWeight
+    userWeight > weightCategory.middleWeight &&
+    userWeight <= weightCategory.lightHeavyWeight
   ) {
     const userCategory = "Light-Heavyweight";
     return userCategory;
-  } else if (userWeight > weightCategory.heavyWeight) {
+  } else if (userWeight > weightCategory.lightHeavyWeight) {
     const userCategory = "Heavyweight";
     return userCategory;
   }

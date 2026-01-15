@@ -122,9 +122,9 @@ export function validateForm({
   }
 
   // Is userWeight valid?
-  if (isNaN(userWeight) || userWeight < 66 || userWeight > 300) {
+  if (isNaN(userWeight) || userWeight < 50 || userWeight > 300) {
     //alert("Please enter a weight between 50kg and 250kg");
-    addError("current-weight", "Please enter a weight between 66kg and 300kg");
+    addError("current-weight", "Please enter a weight between 50kg and 300kg");
 
     //return;
   }
