@@ -12,10 +12,10 @@ export function calculateCosts(data) {
 
   let competitionCost = (userCompetitions * 22).toFixed(2);
 
+  let planCost = planCosts[userPlan] * 4;
+
   let totalCost =
-    planCosts[userPlan] +
-    parseFloat(coachingCost) +
-    parseFloat(competitionCost);
+    planCost + parseFloat(coachingCost) + parseFloat(competitionCost);
 
   const output = {
     totalCost: totalCost.toFixed(2),
