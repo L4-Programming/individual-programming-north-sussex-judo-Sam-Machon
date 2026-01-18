@@ -263,15 +263,43 @@ button:hover {
   border-radius: 4px;
 }
 
-#output dl {
+#output-desktop dl {
   padding: 2rem;
 }
-#output dt {
+#output-desktop dt {
   font-weight: bold;
   margin-bottom: 0.25rem;
   font-size: 1.2rem;
 }
-#output dd {
+#output-desktop dd {
   margin-bottom: 1rem;
   font-size: 1.2rem;
+}
+
+#output-mobile dl {
+  padding: 2rem;
+}
+#output-mobile dt {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+#output-mobile dd {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.desktop {
+  display: block;
+}
+.mobile {
+  display: none;
+}
+@media (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
 }
