@@ -11,6 +11,8 @@
   --slate-500: #64748b;
   --slate-300: #cbd5e1;
   --white: #ffffff;
+  --error-bkg: rgb(255, 196, 196);
+  --error-placeholder: rgb(255, 157, 157);
 }
 
 /*
@@ -35,6 +37,7 @@
 html,
 body {
   height: 100%;
+  background: linear-gradient(to bottom right, var(--sky-50), var(--sky-500));
 }
 
 /*
@@ -110,7 +113,7 @@ form {
 }
 
 .inputs-wrapper {
-  background-color: var(--amber-100);
+  background-color: var(--sky-100);
   border-radius: 8px;
   justify-content: center;
 }
@@ -185,7 +188,9 @@ button {
   cursor: pointer;
   box-shadow: var(--sky-900) 4px 4px 0px;
   border-radius: 8px;
-  transition: transform 200ms, box-shadow 200ms;
+  transition:
+    transform 200ms,
+    box-shadow 200ms;
 }
 button:focus {
   background-color: var(--sky-500);
@@ -195,7 +200,9 @@ button:active {
   background-color: var(--sky-600);
   box-shadow: var(--sky-900) 0px 0px 0px;
 }
-
+button:hover {
+  transform: scale(1.01);
+}
 .information-field {
   padding: 16px;
   border-radius: 8px;
@@ -216,7 +223,7 @@ button:active {
 }
 .radio-button-field label {
   display: inline-block;
-  background-color: var(--sky-200);
+  background-color: var(--white);
   color: var(--sky-600);
   padding: 4px 16px;
   border-radius: 16px;
@@ -224,11 +231,75 @@ button:active {
   font-size: 1rem;
   margin-bottom: 8px;
   transition: all 200ms;
+  box-shadow: var(--sky-900) 2px 2px 0px;
 }
 .radio-button-field label:hover {
   background-color: var(--sky-300);
+  transform: scale(1.05);
 }
 .radio-button-field input:checked + label {
   background-color: var(--sky-600);
   color: var(--sky-50);
+}
+.error-input {
+  background-color: var(--error-bkg);
+  color: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
+.error-input::placeholder {
+  color: var(--error-placeholder);
+}
+.error-label {
+  color: var(--brand-dark);
+}
+
+.error-message ul {
+  padding-left: 0;
+}
+.error-message {
+  background: var(--error-bkg);
+  border-left: 4px solid var(--amber-900);
+  padding: 1px;
+  border-radius: 4px;
+}
+
+#output-desktop dl {
+  padding: 2rem;
+}
+#output-desktop dt {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+#output-desktop dd {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+#output-mobile dl {
+  padding: 2rem;
+}
+#output-mobile dt {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+#output-mobile dd {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.desktop {
+  display: block;
+}
+.mobile {
+  display: none;
+}
+@media (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
 }
